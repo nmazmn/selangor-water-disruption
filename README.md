@@ -73,6 +73,20 @@ $data = air_selangor()
 ```
 
 
+## District Guide Code
+<b>00</b> => Kuala Lumpur<br>
+<b>10</b> => Gombak<br>
+<b>20</b> => Petaling<br>
+<b>30</b> => Klang<br>
+<b>40</b> => Hulu Langat<br>
+<b>50</b> => Kuala Langat<br>
+<b>60</b> => Hulu Selangor<br>
+<b>70</b> => Kuala Selangor<br>
+<b>80</b> => Sabak Bernam<br>
+<b>90</b> => Sepang<br>
+
+
+
 ### Result
 
 You should getting data similarly for listing like below:

@@ -1,0 +1,66 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: hafiq
+ * Date: 05/04/2018
+ * Time: 10:21 AM
+ */
+
+namespace Afiqiqmal\library;
+
+class Constant
+{
+    const PUSPEL_URL = "https://eapi.syabas.com.my/api/puspel/puspel_complaint/";
+    const DISTRICT = [
+        [
+            'code_id' => '00',
+            'name' => 'Kuala Lumpur',
+            'data' => [],
+        ],
+        [
+            'code_id' => '10',
+            'name' => 'Gombak',
+            'data' => [],
+        ],
+        [
+            'code_id' => '20',
+            'name' => 'Petaling',
+            'data' => [],
+        ],
+        [
+            'code_id' => '30',
+            'name' => 'Klang',
+            'data' => [],
+        ],
+        [
+            'code_id' => '40',
+            'name' => 'Hulu Langat',
+            'data' => [],
+        ],
+        [
+            'code_id' => '50',
+            'name' => 'Kuala Langat',
+            'data' => [],
+        ],
+        [
+            'code_id' => '60',
+            'name' => 'Hulu Selangor',
+            'data' => [],
+        ],
+        [
+            'code_id' => '70',
+            'name' => 'Kuala Selangor',
+            'data' => [],
+        ],
+        [
+            'code_id' => '80',
+            'name' => 'Sabak Bernam',
+            'data' => [],
+        ],
+        [
+            'code_id' => '90',
+            'name' => 'Sepang',
+            'data' => [],
+        ],
+    ];
+}

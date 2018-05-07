@@ -18,7 +18,7 @@ Alternatively, you can specify as a dependency in your project's existing compos
 ```
 {
    "require": {
-      "afiqiqmal/selangor-water-disruption": "^1.0.0"
+      "afiqiqmal/selangor-water-disruption": "^1.1.0"
    }
 }
 ```

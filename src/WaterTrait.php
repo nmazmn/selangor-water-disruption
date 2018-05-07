@@ -73,7 +73,7 @@ trait WaterTrait
         foreach ($districts as $key => $district) {
             $districts[$key]['data'] = [];
             foreach ($result as $item) {
-                if ($district['code_id'] === $item['DisruptionLocation'][0]['code']) {
+                if ($district['code_id'] === $item['district_id']) {
                     $item['district_name'] = $district['name'];
                     $item['district_id'] = $district['code_id'];
                     $districts[$key]['data'][] = $item;

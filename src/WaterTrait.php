@@ -3,10 +3,10 @@
 namespace Afiqiqmal\WaterDisruption;
 
 use afiqiqmal\Library\ApiRequest;
+use afiqiqmal\Library\Constant;
 use afiqiqmal\Model\Schedule;
 use afiqiqmal\Model\ScheduleDetail;
 use afiqiqmal\Model\UnSchedule;
-use afiqiqmal\Library\Constant;
 use afiqiqmal\Model\UnScheduleDetail;
 
 trait WaterTrait

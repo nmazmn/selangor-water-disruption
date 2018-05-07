@@ -8,7 +8,7 @@
 
 require_once __DIR__ .'/../vendor/autoload.php';
 
-//$response = air_selangor()->getList()->fetch();
+$response = air_selangor()->getList()->fetch();
 //$response = air_selangor()->getList()->byDistrict("20")->fetch();
 
 //$response = air_selangor()->getList()->schedule()->fetch();
@@ -17,7 +17,7 @@ require_once __DIR__ .'/../vendor/autoload.php';
 //$response = air_selangor()->getList()->unscheduled()->fetch();
 //$response = air_selangor()->getList()->unscheduled()->byDistrict("20")->fetch();
 //
-$response = air_selangor()->unscheduled()->detail("25454")->fetch();
+//$response = air_selangor()->unscheduled()->detail("25454")->fetch();
 
 header('Content-type: application/json');
 echo json_encode($response, JSON_PRETTY_PRINT);

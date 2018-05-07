@@ -20,7 +20,7 @@ class WaterUtils
         $districts = (!is_array($district)) ? explode(',', $district) : $district;
         $actual_district = [];
         foreach ($districts as $district) {
-            foreach (Constant::DISTRICT as $item) {
+            foreach (Constant::WATER_DISTRICT as $item) {
                 if ($item['code_id'] == $district) {
                     $actual_district[] = $item['code_id'];
                     break;

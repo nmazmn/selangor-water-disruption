@@ -22,11 +22,11 @@ trait WaterTrait
                 }
             }
 
-            if ($type == SCHEDULE) {
+            if ($type == WATER_SCHEDULE) {
                 return $this->getScheduleList($byDistrict);
             }
 
-            if ($type == UNSCHEDULED) {
+            if ($type == WATER_UNSCHEDULED) {
                 return $this->getUnScheduleList($byDistrict);
             }
 
@@ -43,11 +43,11 @@ trait WaterTrait
     protected function getWaterDetail($id, $type)
     {
         try {
-            if ($type == SCHEDULE) {
+            if ($type == WATER_SCHEDULE) {
                 $disruption = $this->apiCall()->fetch("scheduled_view/{$id}.json")['body'];
                 return water_response((new ScheduleDetail($disruption))->toArray());
             }
-            if ($type == UNSCHEDULED) {
+            if ($type == WATER_UNSCHEDULED) {
                 $disruption = $this->apiCall()->fetch("unschedule_view/{$id}.json")['body'];
                 return water_response((new UnScheduleDetail($disruption))->toArray());
             }
@@ -60,7 +60,7 @@ trait WaterTrait
 
     private function apiCall(): ApiRequest
     {
-        return api_request()->baseUrl(Constant::PUSPEL_URL);
+        return water_request()->baseUrl(Constant::WATER_PUSPEL_URL);
     }
 
     private function getScheduleList($byDistrict = null)
@@ -68,7 +68,7 @@ trait WaterTrait
         $schedules = $this->apiCall()->fetch("scheduled_all.json");
 
         $result = (new Schedule($schedules['body']))->toArray();
-        $districts = Constant::DISTRICT;
+        $districts = Constant::WATER_DISTRICT;
 
         foreach ($districts as $key => $district) {
             foreach ($result as $item) {
@@ -97,7 +97,7 @@ trait WaterTrait
 
         $result = (new UnSchedule($unscheduled['body']))->toArray();
 
-        $districts = Constant::DISTRICT;
+        $districts = Constant::WATER_DISTRICT;
         foreach ($districts as $key => $district) {
             $districts[$key]['data'] = [];
             foreach ($result as $item) {
@@ -127,7 +127,7 @@ trait WaterTrait
         $result1 = (new Schedule($schedules['body']))->toArray();
         $result2 = (new UnSchedule($unscheduled['body']))->toArray();
 
-        $districts = Constant::DISTRICT;
+        $districts = Constant::WATER_DISTRICT;
 
         foreach ($districts as $key => $district) {
             $districts[$key]['data'] = [];

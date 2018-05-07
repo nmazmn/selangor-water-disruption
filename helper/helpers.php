@@ -5,13 +5,13 @@ use afiqiqmal\library\Constant;
 use afiqiqmal\WaterDisruption\WaterDisruption;
 use afiqiqmal\WaterDisruption\WaterUtils;
 
-define('METHOD_POST', 'POST');
-define('METHOD_GET', 'GET');
-define('METHOD_PATCH', 'PATCH');
-define('METHOD_DELETE', 'DELETE');
-define('USER_AGENT', 'testing/1.0');
-define('SCHEDULE', 'Schedule');
-define('UNSCHEDULED', 'Unscheduled');
+define('WATER_METHOD_POST', 'POST');
+define('WATER_METHOD_GET', 'GET');
+define('WATER_METHOD_PATCH', 'PATCH');
+define('WATER_METHOD_DELETE', 'DELETE');
+define('WATER_USER_AGENT', 'testing/1.0');
+define('WATER_SCHEDULE', 'Schedule');
+define('WATER_UNSCHEDULED', 'Unscheduled');
 
 if (! function_exists('air_selangor')) {
 
@@ -21,9 +21,9 @@ if (! function_exists('air_selangor')) {
     }
 }
 
-if (! function_exists('api_request')) {
+if (! function_exists('water_request')) {
 
-    function api_request()
+    function water_request()
     {
         return new ApiRequest();
     }
@@ -33,7 +33,7 @@ if (! function_exists('which_district')) {
 
     function which_district($code)
     {
-        foreach (Constant::DISTRICT as $district) {
+        foreach (Constant::WATER_DISTRICT as $district) {
             if ($district['code_id'] === $code) {
                 return $district;
             }

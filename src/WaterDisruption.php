@@ -19,13 +19,13 @@ class WaterDisruption
 
     public function schedule()
     {
-        $this->whichType = SCHEDULE;
+        $this->whichType = WATER_SCHEDULE;
         return $this;
     }
 
     public function unscheduled()
     {
-        $this->whichType = UNSCHEDULED;
+        $this->whichType = WATER_UNSCHEDULED;
         return $this;
     }
 

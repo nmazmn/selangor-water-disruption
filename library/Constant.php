@@ -10,8 +10,8 @@ namespace Afiqiqmal\library;
 
 class Constant
 {
-    const PUSPEL_URL = "https://eapi.syabas.com.my/api/puspel/puspel_complaint/";
-    const DISTRICT = [
+    const WATER_PUSPEL_URL = "https://eapi.syabas.com.my/api/puspel/puspel_complaint/";
+    const WATER_DISTRICT = [
         [
             'code_id' => '00',
             'name' => 'Kuala Lumpur',

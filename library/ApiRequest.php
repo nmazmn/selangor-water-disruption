@@ -126,22 +126,22 @@ class ApiRequest
         try {
             $client = new Client();
             switch ($this->method) {
-                case METHOD_GET:
+                case WATER_METHOD_GET:
                     $param = [
                         'query' => $this->requestBody,
                         'headers' => $this->header
                     ];
                     break;
-                case METHOD_POST:
+                case WATER_METHOD_POST:
                     $param = [
                         'form_params' => $this->requestBody,
                         'headers' => $this->header
                     ];
                     break;
-                case METHOD_PATCH:
+                case WATER_METHOD_PATCH:
                     $param = [];
                     break;
-                case METHOD_DELETE:
+                case WATER_METHOD_DELETE:
                     $param = [];
                     break;
                 default:

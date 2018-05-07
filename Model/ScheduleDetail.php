@@ -31,6 +31,7 @@ class ScheduleDetail
         $data['remarks_plain'] = water_utils()->strip_tag_replace($map['remarks']);
         $data['affected_areas'] = $map['affected'];
         $data['affected_areas_plain'] = water_utils()->strip_tag_replace($map['affected']);
+        $data['affected_areas_filtered'] = water_utils()->splitWordNewLineToArray($data['affected_areas_plain']);
         $event_date = Carbon::createFromFormat('d/m/Y h:i a', $map['start']);
         $data['start_date'] = $event_date->timestamp;
         $data['start_date_formatted'] = $event_date->format('M d Y, H:i');

@@ -31,6 +31,23 @@ class WaterUtils
         return $actual_district;
     }
 
+    function splitWordNewLineToArray($word)
+    {
+        return $this->removeAllNullInArray(array_map('trim', preg_split('/\r\n|\r|\n/', $word)));
+    }
+
+    function removeAllNullInArray($array)
+    {
+        $newData = [];
+        foreach ($array as $item) {
+            if ($item != null) {
+                $newData[] = $item;
+            }
+        }
+
+        return $newData;
+    }
+
     function sortByDate($data)
     {
         usort($data, function ($a, $b) {

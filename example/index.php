@@ -17,7 +17,7 @@ $response = air_selangor()->getList()->fetch();
 //$response = air_selangor()->getList()->unscheduled()->fetch();
 //$response = air_selangor()->getList()->unscheduled()->byDistrict("20")->fetch();
 //
-//$response = air_selangor()->unscheduled()->detail("25454")->fetch();
+$response = air_selangor()->schedule()->detail("5106")->fetch();
 
 header('Content-type: application/json');
 echo json_encode($response, JSON_PRETTY_PRINT);

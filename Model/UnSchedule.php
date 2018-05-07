@@ -28,9 +28,10 @@ class UnSchedule
         $data['title'] = $map['title'];
         $data['location'] = isset($map['location']) ? $map['location'] : null;
         $data['affected_areas'] = isset($map['affected_area']) ? $map['affected_area'] : null;
+        $data['affected_areas_filtered'] = isset($map['affected_area']) ? water_utils()->splitWordNewLineToArray($map['affected_area']) : null;
         $event_date = Carbon::createFromFormat('d/m/Y h:i a', $map['created']);
         $data['start_date'] = $event_date->timestamp;
-        $data['start_date_formatted'] = $event_date->format('M d Y, H:i');
+        $data['start_date_formatted'] = $map['created'];
         $data['end_date'] = 0;
         $data['end_date_formatted'] = null;
         $data['district_id'] = $object['District']['code'];

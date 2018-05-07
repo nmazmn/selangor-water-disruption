@@ -3,10 +3,10 @@
 namespace Afiqiqmal\WaterDisruption;
 
 use afiqiqmal\Library\ApiRequest;
+use afiqiqmal\Library\Constant;
 use afiqiqmal\Model\Schedule;
 use afiqiqmal\Model\ScheduleDetail;
 use afiqiqmal\Model\UnSchedule;
-use afiqiqmal\Library\Constant;
 use afiqiqmal\Model\UnScheduleDetail;
 
 trait WaterTrait
@@ -71,13 +71,18 @@ trait WaterTrait
         $districts = Constant::WATER_DISTRICT;
 
         foreach ($districts as $key => $district) {
+            $districts[$key]['data'] = [];
             foreach ($result as $item) {
-                if ($district['code_id'] === $item['DisruptionLocation'][0]['code']) {
+                if ($district['code_id'] === $item['district_id']) {
                     $item['district_name'] = $district['name'];
                     $item['district_id'] = $district['code_id'];
                     $districts[$key]['data'][] = $item;
                 }
             }
+
+            //sort by start date
+            $districts[$key]['count'] = isset($districts[$key]['data']) ? count($districts[$key]['data']) : 0;
+            $districts[$key]['data'] = isset($districts[$key]['data']) ? water_utils()->sortByDate($districts[$key]['data']) : [];
         }
 
         if ($byDistrict) {
@@ -109,6 +114,9 @@ trait WaterTrait
                     $districts[$key]['data'][] = $item;
                 }
             }
+
+            $districts[$key]['count'] = isset($districts[$key]['data']) ? count($districts[$key]['data']) : 0;
+            $districts[$key]['data'] = isset($districts[$key]['data']) ? water_utils()->sortByDate($districts[$key]['data']) : [];
         }
 
         if ($byDistrict) {
@@ -151,6 +159,9 @@ trait WaterTrait
                     $districts[$key]['data'][] = $item;
                 }
             }
+
+            $districts[$key]['count'] = isset($districts[$key]['data']) ? count($districts[$key]['data']) : 0;
+            $districts[$key]['data'] = isset($districts[$key]['data']) ? water_utils()->sortByDate($districts[$key]['data']) : [];
         }
 
         if ($byDistrict) {

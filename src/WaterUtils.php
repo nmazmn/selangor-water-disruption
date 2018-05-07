@@ -30,4 +30,34 @@ class WaterUtils
 
         return $actual_district;
     }
+
+    function splitWordNewLineToArray($word)
+    {
+        return $this->removeAllNullInArray(array_map('trim', preg_split('/\r\n|\r|\n/', $word)));
+    }
+
+    function removeAllNullInArray($array)
+    {
+        $newData = [];
+        foreach ($array as $item) {
+            if ($item != null) {
+                $newData[] = $item;
+            }
+        }
+
+        return $newData;
+    }
+
+    function sortByDate($data, $column = 'start_date')
+    {
+        usort($data, function ($a, $b) use ($column) {
+            $a = $a[$column];
+            $b = $b[$column];
+
+            if ($a == $b) return 0;
+            return ($a < $b) ? -1 : 1;
+        });
+
+        return $data;
+    }
 }

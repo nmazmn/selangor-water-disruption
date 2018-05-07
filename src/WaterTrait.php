@@ -71,6 +71,7 @@ trait WaterTrait
         $districts = Constant::WATER_DISTRICT;
 
         foreach ($districts as $key => $district) {
+            $districts[$key]['data'] = [];
             foreach ($result as $item) {
                 if ($district['code_id'] === $item['DisruptionLocation'][0]['code']) {
                     $item['district_name'] = $district['name'];
@@ -78,6 +79,10 @@ trait WaterTrait
                     $districts[$key]['data'][] = $item;
                 }
             }
+
+            //sort by start date
+            $districts[$key]['count'] = isset($districts[$key]['data']) ? count($districts[$key]['data']) : 0;
+            $districts[$key]['data'] = isset($districts[$key]['data']) ? water_utils()->sortByDate($byDistrict[$key]['data']) : [];
         }
 
         if ($byDistrict) {
@@ -109,6 +114,9 @@ trait WaterTrait
                     $districts[$key]['data'][] = $item;
                 }
             }
+
+            $districts[$key]['count'] = isset($districts[$key]['data']) ? count($districts[$key]['data']) : 0;
+            $districts[$key]['data'] = isset($districts[$key]['data']) ? water_utils()->sortByDate($byDistrict[$key]['data']) : [];
         }
 
         if ($byDistrict) {
@@ -151,6 +159,9 @@ trait WaterTrait
                     $districts[$key]['data'][] = $item;
                 }
             }
+
+            $districts[$key]['count'] = isset($districts[$key]['data']) ? count($districts[$key]['data']) : 0;
+            $districts[$key]['data'] = isset($districts[$key]['data']) ? water_utils()->sortByDate($districts[$key]['data']) : [];
         }
 
         if ($byDistrict) {

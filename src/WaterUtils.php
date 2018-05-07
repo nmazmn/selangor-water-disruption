@@ -30,4 +30,17 @@ class WaterUtils
 
         return $actual_district;
     }
+
+    function sortByDate($data)
+    {
+        usort($data, function ($a, $b) {
+            $a = $a['start_date'];
+            $b = $b['start_date'];
+
+            if ($a == $b) return 0;
+            return ($a < $b) ? -1 : 1;
+        });
+
+        return $data;
+    }
 }

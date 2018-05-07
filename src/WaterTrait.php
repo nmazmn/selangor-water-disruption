@@ -82,7 +82,7 @@ trait WaterTrait
 
             //sort by start date
             $districts[$key]['count'] = isset($districts[$key]['data']) ? count($districts[$key]['data']) : 0;
-            $districts[$key]['data'] = isset($districts[$key]['data']) ? water_utils()->sortByDate($byDistrict[$key]['data']) : [];
+            $districts[$key]['data'] = isset($districts[$key]['data']) ? water_utils()->sortByDate($districts[$key]['data']) : [];
         }
 
         if ($byDistrict) {
@@ -116,7 +116,7 @@ trait WaterTrait
             }
 
             $districts[$key]['count'] = isset($districts[$key]['data']) ? count($districts[$key]['data']) : 0;
-            $districts[$key]['data'] = isset($districts[$key]['data']) ? water_utils()->sortByDate($byDistrict[$key]['data']) : [];
+            $districts[$key]['data'] = isset($districts[$key]['data']) ? water_utils()->sortByDate($districts[$key]['data']) : [];
         }
 
         if ($byDistrict) {

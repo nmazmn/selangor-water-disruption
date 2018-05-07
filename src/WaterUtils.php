@@ -48,11 +48,11 @@ class WaterUtils
         return $newData;
     }
 
-    function sortByDate($data)
+    function sortByDate($data, $column = 'start_date')
     {
-        usort($data, function ($a, $b) {
-            $a = $a['start_date'];
-            $b = $b['start_date'];
+        usort($data, function ($a, $b) use ($column) {
+            $a = $a[$column];
+            $b = $b[$column];
 
             if ($a == $b) return 0;
             return ($a < $b) ? -1 : 1;

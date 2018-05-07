@@ -73,6 +73,8 @@ trait WaterTrait
         foreach ($districts as $key => $district) {
             foreach ($result as $item) {
                 if ($district['code_id'] === $item['DisruptionLocation'][0]['code']) {
+                    $item['district_name'] = $district['name'];
+                    $item['district_id'] = $district['code_id'];
                     $districts[$key]['data'][] = $item;
                 }
             }
@@ -102,6 +104,8 @@ trait WaterTrait
             $districts[$key]['data'] = [];
             foreach ($result as $item) {
                 if ($district['code_id'] === $item['district_id']) {
+                    $item['district_name'] = $district['name'];
+                    $item['district_id'] = $district['code_id'];
                     $districts[$key]['data'][] = $item;
                 }
             }
@@ -134,12 +138,16 @@ trait WaterTrait
 
             foreach ($result1 as $item) {
                 if ($district['code_id'] === $item['district_id']) {
+                    $item['district_name'] = $district['name'];
+                    $item['district_id'] = $district['code_id'];
                     $districts[$key]['data'][] = $item;
                 }
             }
 
             foreach ($result2 as $item) {
                 if ($district['code_id'] === $item['district_id']) {
+                    $item['district_name'] = $district['name'];
+                    $item['district_id'] = $district['code_id'];
                     $districts[$key]['data'][] = $item;
                 }
             }

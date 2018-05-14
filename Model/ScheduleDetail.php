@@ -24,11 +24,11 @@ class ScheduleDetail
         $data = [];
         $data['id'] = $map['id'];
         $data['title'] = $map['note'];
-        $data['detail'] = $map['note_more'];
-        $data['detail_plain'] = water_utils()->strip_tag_replace($map['note_more']);
-        $data['remarks'] = $map['remarks'];
+        $data['detail'] = $object['DisruptionCategory']['name'];
+        $data['detail_plain'] = water_utils()->strip_tag_replace($object['DisruptionCategory']['name']);
+        $data['remarks'] = $map['note_more'];
         $data['location'] = isset($map['location']) ? $map['location'] : null;
-        $data['remarks_plain'] = water_utils()->strip_tag_replace($map['remarks']);
+        $data['remarks_plain'] = water_utils()->strip_tag_replace($map['note_more']);
         $data['affected_areas'] = $map['affected'];
         $data['affected_areas_plain'] = water_utils()->strip_tag_replace($map['affected']);
         $data['affected_areas_filtered'] = water_utils()->splitWordNewLineToArray($data['affected_areas_plain']);

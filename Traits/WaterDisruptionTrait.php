@@ -47,7 +47,7 @@ trait WaterDisruptionTrait
                 return water_response((new WaterDetail($disruption))->toArray());
             }
             if ($type == WATER_UNSCHEDULED) {
-                $disruption = $this->apiCall()->fetch("unschedule_view/{$id}.json")['body'];
+                $disruption = $this->apiCall()->fetch("view/{$id}.json")['body'];
                 return water_response((new WaterDetail($disruption))->toArray());
             }
 

@@ -41,7 +41,7 @@ $data = air_selangor()
 #### Sample for All List by District
 ```php
 $data = air_selangor()
-        ->disruption()
+    ->disruption()
 	->getList()
 	->byDistrict("20") // byDistrict("20,00,10") // byDistrict(["20","00"])
 	->fetch();
@@ -72,16 +72,15 @@ $data = air_selangor()
 ```php
 $data = air_selangor()
 	->disruption()
-        ->unscheduled() // schedule() or unscheduled()  // mandatory
-        ->detail("12345")
-        ->fetch();
+    ->detail("12345")
+    ->fetch();
 ```
 
 #### Usage for Water Dam (Get Information of Selangor Water Dam Water Level)
 ```php
 $data = air_selangor()
 	->waterDam()
-        ->fetch();
+    ->fetch();
 ```
 
 
@@ -296,48 +295,7 @@ You should getting data similarly for listing like below:
 
 You should getting data similarly for DETAIL like below:
 
-Schedule Sample
-```json
-{
-    "code": 200,
-    "error": false,
-    "info": {
-        "id": "5106",
-        "title": "Kerja-kerja penggantian pam air mentah di Loji Rawatan Air Sungai Selisik",
-        "detail": "Para pengguna dinasihatkan agar membuat persediaan dengan menyimpan bekalan air secukupnya bagi menghadapi gangguan bekalan air sementara ini serta menggunakan air secara berhemah sepanjang tempoh gangguan tersebut.<br /><br />Para pengguna yang memerlukan maklumat berhubung kerja-kerja berjadual ini disarankan untuk melayari laman sesawang SYABAS iaitu www.syabas.com.my;atau melayari laman rasmi Twitter &quot;air_selangor&quot;. Pengguna juga boleh memuat turun aplikasi sistem mySYABAS (melalui Google Playstore dan Appstore) untuk mendapatkan maklumat lanjut berhubung gangguan yang berlaku.",
-        "detail_plain": "Para pengguna dinasihatkan agar membuat persediaan dengan menyimpan bekalan air secukupnya bagi menghadapi gangguan bekalan air sementara ini serta menggunakan air secara berhemah sepanjang tempoh gangguan tersebut.\n\nPara pengguna yang memerlukan maklumat berhubung kerja-kerja berjadual ini disarankan untuk melayari laman sesawang SYABAS iaitu www.syabas.com.my;atau melayari laman rasmi Twitter \"air_selangor\". Pengguna juga boleh memuat turun aplikasi sistem mySYABAS (melalui Google Playstore dan Appstore) untuk mendapatkan maklumat lanjut berhubung gangguan yang berlaku.",
-        "remarks": "",
-        "location": null,
-        "remarks_plain": "",
-        "affected_areas": "1. Kampung Sungai Nilam/ Kampung Seri Pagi<br />2. Kampung Lalang Sungai Selisik<br />3. Rumah Murah Pkt 2 Sungai Selisek<br />4. Kampung Serigala Sungai Selisek<br />5. Kampung Orang Asli Serigala Sungai Selisek<br />6. Kampong Bahom Sungai Selisek<br />7. Kampong Sekolah, Kuarters Klinik<br />8. Kampong Gesir Tengah Sungai Selisek",
-        "affected_areas_plain": "1. Kampung Sungai Nilam/ Kampung Seri Pagi\n2. Kampung Lalang Sungai Selisik\n3. Rumah Murah Pkt 2 Sungai Selisek\n4. Kampung Serigala Sungai Selisek\n5. Kampung Orang Asli Serigala Sungai Selisek\n6. Kampong Bahom Sungai Selisek\n7. Kampong Sekolah, Kuarters Klinik\n8. Kampong Gesir Tengah Sungai Selisek",
-        "affected_areas_filtered": [
-            "1. Kampung Sungai Nilam/ Kampung Seri Pagi",
-            "2. Kampung Lalang Sungai Selisik",
-            "3. Rumah Murah Pkt 2 Sungai Selisek",
-            "4. Kampung Serigala Sungai Selisek",
-            "5. Kampung Orang Asli Serigala Sungai Selisek",
-            "6. Kampong Bahom Sungai Selisek",
-            "7. Kampong Sekolah, Kuarters Klinik",
-            "8. Kampong Gesir Tengah Sungai Selisek"
-        ],
-        "start_date": 1526288400,
-        "start_date_formatted": "May 14 2018, 09:00",
-        "end_date": 1526353200,
-        "end_date_formatted": "May 15 2018, 03:00"
-    },
-    "generated_at": "2018-05-07 04:29:37",
-    "footer": {
-        "source": "Air Selangor MySyabas API",
-        "developer": {
-            "name": "Hafiq",
-            "homepage": "https://github.com/afiqiqmal"
-        }
-    }
-}
-```
-
-UnSchedule Sample
+Sample
 ```json
 {
     "code": 200,

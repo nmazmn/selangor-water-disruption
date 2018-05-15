@@ -50,7 +50,7 @@ class WaterDisruption
         }
 
         if ($this->detailId) {
-            return $this->getWaterDetail($this->detailId, $this->whichType);
+            return $this->getWaterDetail($this->detailId);
         }
 
         return die_response('Wrong method chaining is used. Please see docs properly');

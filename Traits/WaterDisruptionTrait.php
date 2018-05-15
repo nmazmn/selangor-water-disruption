@@ -37,19 +37,12 @@ trait WaterDisruptionTrait
         }
     }
 
-    protected function getWaterDetail($id, $type)
+    protected function getWaterDetail($id)
     {
         try {
-            if ($type == WATER_SCHEDULE) {
-                $disruption = $this->apiCall()->fetch("view/{$id}.json")['body'];
-                return water_response((new WaterDetail($disruption))->toArray());
-            }
-            if ($type == WATER_UNSCHEDULED) {
-                $disruption = $this->apiCall()->fetch("view/{$id}.json")['body'];
-                return water_response((new WaterDetail($disruption))->toArray());
-            }
+            $disruption = $this->apiCall()->fetch("view/{$id}.json")['body'];
+            return water_response((new WaterDetail($disruption))->toArray());
 
-            return die_response('Wrong type of disruption is passed. Please check again');
         } catch (\Exception $e) {
             return die_response('Detail Cannot be Fetch');
         }

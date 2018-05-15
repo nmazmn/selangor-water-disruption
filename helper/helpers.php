@@ -51,6 +51,13 @@ if (! function_exists('water_utils')) {
     }
 }
 
+if (! function_exists('trim_spaces')) {
+    function trim_spaces($text)
+    {
+        return html_entity_decode(trim(preg_replace('/\s|&nbsp;/', ' ', htmlentities($text))));
+    }
+}
+
 if (! function_exists('die_response')) {
 
     function die_response($message = "Something Went Wrong")
@@ -66,7 +73,7 @@ if (! function_exists('die_response')) {
 
 if (! function_exists('water_response')) {
 
-    function water_response($output)
+    function water_response($output, $source = 'Air Selangor MySyabas API')
     {
         return [
             'code' => 200,
@@ -74,7 +81,7 @@ if (! function_exists('water_response')) {
             'info' => $output,
             'generated_at' => \Carbon\Carbon::now()->toDateTimeString(),
             'footer' => [
-                "source" => 'Air Selangor MySyabas API',
+                "source" => $source,
                 "developer" => [
                     "name" => "Hafiq",
                     "homepage" => "https://github.com/afiqiqmal"

@@ -33,6 +33,7 @@ require_once __DIR__ .'/../vendor/autoload.php';
 #### Sample for All List
 ```php
 $data = air_selangor()
+		->disruption()
 		->getList()
 		->fetch();
 ```
@@ -40,6 +41,7 @@ $data = air_selangor()
 #### Sample for All List by District
 ```php
 $data = air_selangor()
+        ->disruption()
 		->getList()
 		->byDistrict("20") // byDistrict("20,00,10") // byDistrict(["20","00"])
 		->fetch();
@@ -48,6 +50,7 @@ $data = air_selangor()
 #### Sample for All Schedule List
 ```php
 $data = air_selangor()
+		->disruption()
 		->getList()
 		->schedule() // schedule() or unscheduled()
 		->byDistrict("20") // byDistrict("20,00,10") // byDistrict(["20","00"])
@@ -57,6 +60,7 @@ $data = air_selangor()
 #### Sample for All Schedule List by District
 ```php
 $data = air_selangor()
+		->disruption()
 		->getList()
 		->schedule() // schedule() or unscheduled()
 		->byDistrict("20") // byDistrict("20,00,10") // byDistrict(["20","00"])
@@ -67,8 +71,16 @@ $data = air_selangor()
 #### Sample for See Detail from the list by ID
 ```php
 $data = air_selangor()
+		->disruption()
         ->unscheduled() // schedule() or unscheduled()  // mandatory
         ->detail("12345")
+        ->fetch();
+```
+
+#### Usage for Water Dam
+```php
+$data = air_selangor()
+		->waterDam()
         ->fetch();
 ```
 
@@ -84,7 +96,6 @@ $data = air_selangor()
 <b>70</b> => Kuala Selangor<br>
 <b>80</b> => Sabak Bernam<br>
 <b>90</b> => Sepang<br>
-
 
 
 ### Result
@@ -368,6 +379,151 @@ UnSchedule Sample
     "generated_at": "2018-05-06 14:22:38",
     "footer": {
         "source": "Air Selangor MySyabas API",
+        "developer": {
+            "name": "Hafiq",
+            "homepage": "https://github.com/afiqiqmal"
+        }
+    }
+}
+```
+
+#### Water Dam Air Selangor
+Sample Result
+```json
+{
+    "code": 200,
+    "error": false,
+    "info": [
+        {
+            "name": "Klang Gates",
+            "built_date": "1959",
+            "owner": "LEMBAGA URUS AIR SELANGOR (LUAS) Tingkat 12 & 13,  Bangunan Darul Ehsan  No. 3, Jalan Indah, Seksyen 14  40000 Shah Alam  Selangor Darul Ehsan  Tel : 03 - 5511 1800  Faks : 03 - 5510 1800",
+            "operator": "PUNCAK NIAGA (M) SDN BHD Wisma Rozali  No. 4, Persiaran Sukan, Syeksen 13  40100 Shah Alam  Selangor Darul Ehsan  Tel : 03 – 5522 8589  Faks : 03 – 55101504",
+            "status": "Berfungsi",
+            "data": {
+                "update_date": "15-05-201808:00 AM",
+                "station": "Langat",
+                "water_level_amount": "218.27",
+                "water_level_metric": "m MSL",
+                "reservoir": "28.86",
+                "reservoir_metric": "Mm³",
+                "reservoir_percentage": "84.66",
+                "rain": "0.00",
+                "rain_metric": "mm"
+            }
+        },
+        {
+            "name": "Langat",
+            "built_date": "1979",
+            "owner": "LEMBAGA URUS AIR SELANGOR (LUAS) Tingkat 12 & 13,  Bangunan Darul Ehsan  No. 3, Jalan Indah, Seksyen 14  40000 Shah Alam  Selangor Darul Ehsan  Tel : 03 - 5511 1800  Faks : 03 - 5510 1800",
+            "operator": "PUNCAK NIAGA (M) SDN BHD Wisma Rozali  No. 4, Persiaran Sukan, Syeksen 13  40100 Shah Alam  Selangor Darul Ehsan  Tel : 03 – 5522 8589  Faks : 03 – 55101504",
+            "status": "Berfungsi",
+            "data": {
+                "update_date": "15-05-201808:00 AM",
+                "station": "Langat",
+                "water_level_amount": "218.27",
+                "water_level_metric": "m MSL",
+                "reservoir": "28.86",
+                "reservoir_metric": "Mm³",
+                "reservoir_percentage": "84.66",
+                "rain": "0.00",
+                "rain_metric": "mm"
+            }
+        },
+        {
+            "name": "Tasik Subang",
+            "built_date": "1950",
+            "owner": "LEMBAGA URUS AIR SELANGOR (LUAS) Tingkat 12 & 13,  Bangunan Darul Ehsan  No. 3, Jalan Indah, Seksyen 14  40000 Shah Alam  Selangor Darul Ehsan  Tel : 03 - 5511 1800  Faks : 03 - 5510 1800",
+            "operator": "PUNCAK NIAGA (M) SDN BHD Wisma Rozali  No. 4, Persiaran Sukan, Syeksen 13  40100 Shah Alam  Selangor Darul Ehsan  Tel : 03 – 5522 8589  Faks : 03 – 55101504",
+            "status": "Berfungsi",
+            "data": {
+                "update_date": "15-05-201808:00 AM",
+                "station": "Tasik Subang",
+                "water_level_amount": "38.62",
+                "water_level_metric": "m MSL",
+                "reservoir": "4.21",
+                "reservoir_metric": "Mm³",
+                "reservoir_percentage": "100.00",
+                "rain": "0.00",
+                "rain_metric": "mm"
+            }
+        },
+        {
+            "name": "Sungai Tinggi",
+            "built_date": "1995",
+            "owner": "LEMBAGA URUS AIR SELANGOR (LUAS) Tingkat 12 & 13,  Bangunan Darul Ehsan  No. 3, Jalan Indah, Seksyen 14  40000 Shah Alam  Selangor Darul Ehsan  Tel : 03 - 5511 1800  Faks : 03 - 5510 1800",
+            "operator": "Konsurtium ABASS Sdn Bhd Tingkat 15, Plaza Perangsang  Persiaran Perbandaran  40000 Shah Alam  Selangor Darul Ehsan  Tel : 03 – 5512 2660  Faks : 03 – 5511 4660",
+            "status": "Berfungsi",
+            "data": {
+                "update_date": "15-05-201808:00 AM",
+                "station": "Sg Tinggi",
+                "water_level_amount": "59.61",
+                "water_level_metric": "m MSL",
+                "reservoir": "115.34",
+                "reservoir_metric": "Mm³",
+                "reservoir_percentage": "100.00",
+                "rain": "0.00",
+                "rain_metric": "mm"
+            }
+        },
+        {
+            "name": "Sungai Selangor",
+            "built_date": "2001",
+            "owner": "LEMBAGA URUS AIR SELANGOR (LUAS) Tingkat 12 & 13,  Bangunan Darul Ehsan  No. 3, Jalan Indah, Seksyen 14  40000 Shah Alam  Selangor Darul Ehsan  Tel : 03 - 5511 1800  Faks : 03 - 5510 1800",
+            "operator": "Konsurtium ABASS Sdn Bhd Tingkat 15, Plaza Perangsang  Persiaran Perbandaran  40000 Shah Alam  Selangor Darul Ehsan  Tel : 03 – 5512 2660  Faks : 03 – 5511 4660",
+            "status": "Berfungsi",
+            "data": {
+                "update_date": "15-05-201808:00 AM",
+                "station": "Sg Selangor",
+                "water_level_amount": "220.20",
+                "water_level_metric": "m MSL",
+                "reservoir": "230.00",
+                "reservoir_metric": "Mm³",
+                "reservoir_percentage": "100.00",
+                "rain": "0.00",
+                "rain_metric": "mm"
+            }
+        },
+        {
+            "name": "Semenyih",
+            "built_date": "1985",
+            "owner": "LEMBAGA URUS AIR SELANGOR (LUAS) Tingkat 12 & 13,  Bangunan Darul Ehsan  No. 3, Jalan Indah, Seksyen 14  40000 Shah Alam  Selangor Darul Ehsan  Tel : 03 - 5511 1800  Faks : 03 - 5510 1800",
+            "operator": "Konsurtium ABASS Sdn Bhd Tingkat 15, Plaza Perangsang  Persiaran Perbandaran  40000 Shah Alam  Selangor Darul Ehsan  Tel : 03 – 5512 2660  Faks : 03 – 5511 4660",
+            "status": "Berfungsi",
+            "data": {
+                "update_date": "15-05-201807:00 AM",
+                "station": "Semenyih",
+                "water_level_amount": "111.04",
+                "water_level_metric": "m MSL",
+                "reservoir": "59.22",
+                "reservoir_metric": "Mm³",
+                "reservoir_percentage": "100.25",
+                "rain": "0.00",
+                "rain_metric": "mm"
+            }
+        },
+        {
+            "name": "Sg. Labu Kolam Takungan",
+            "built_date": "2011",
+            "owner": "LEMBAGA URUS AIR SELANGOR (LUAS) Tingkat 12 & 13,  Bangunan Darul Ehsan  No. 3, Jalan Indah, Seksyen 14  40000 Shah Alam  Selangor Darul Ehsan  Tel : 03 - 5511 1800  Faks : 03 - 5510 1800",
+            "operator": "Konsurtium ABASS Sdn Bhd Tingkat 15, Plaza Perangsang  Persiaran Perbandaran  40000 Shah Alam  Selangor Darul Ehsan  Tel : 03 – 5512 2660  Faks : 03 – 5511 4660",
+            "status": "Berfungsi",
+            "data": {
+                "update_date": "15-05-201807:00 AM",
+                "station": "Kolam Takungan Sg. Labu (ors)",
+                "water_level_amount": "44.90",
+                "water_level_metric": "m MSL",
+                "reservoir": "9.26",
+                "reservoir_metric": "Mm³",
+                "reservoir_percentage": "99.62",
+                "rain": "6.00",
+                "rain_metric": "mm"
+            }
+        }
+    ],
+    "generated_at": "2018-05-15 06:16:47",
+    "footer": {
+        "source": "Lembaga Urus Air Selangor",
         "developer": {
             "name": "Hafiq",
             "homepage": "https://github.com/afiqiqmal"

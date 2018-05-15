@@ -8,16 +8,18 @@
 
 require_once __DIR__ .'/../vendor/autoload.php';
 
-$response = air_selangor()->disruption()->getList()->fetch();
-//$response = air_selangor()->getList()->byDistrict("20")->fetch();
+//$response = air_selangor()->disruption()->getList()->fetch();
+//$response = air_selangor()->disruption()->getList()->byDistrict("20")->fetch();
 
-//$response = air_selangor()->getList()->schedule()->fetch();
-//$response = air_selangor()->getList()->schedule()->byDistrict("00")->fetch();
+//$response = air_selangor()->disruption()->getList()->schedule()->fetch();
+//$response = air_selangor()->disruption()->getList()->schedule()->byDistrict("00")->fetch();
 
-//$response = air_selangor()->getList()->unscheduled()->fetch();
-//$response = air_selangor()->getList()->unscheduled()->byDistrict("20")->fetch();
+//$response = air_selangor()->disruption()->getList()->unscheduled()->fetch();
+//$response = air_selangor()->disruption()->getList()->unscheduled()->byDistrict("20")->fetch();
 //
-//$response = air_selangor()->schedule()->detail("5106")->fetch();
+//$response = air_selangor()->disruption()->schedule()->detail("5106")->fetch();
+
+$response = air_selangor()->waterDam()->fetch();
 
 header('Content-type: application/json');
 echo json_encode($response, JSON_PRETTY_PRINT);

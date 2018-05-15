@@ -64,5 +64,6 @@ class Constant
         ],
     ];
 
-    const IWRIMS_URL = "http://iwrims.luas.gov.my/";
+    const IWRIMS_URL = "http://iwrims.luas.gov.my/data_info.cfm";
+    const JBA_URL = "http://www.jba.gov.my/index.php/empangan-air-negeri-selangor";
 }

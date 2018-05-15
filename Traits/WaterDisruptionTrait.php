@@ -6,8 +6,6 @@ use afiqiqmal\Library\ApiRequest;
 use afiqiqmal\Library\Constant;
 use afiqiqmal\Model\Water;
 use afiqiqmal\Model\WaterDetail;
-use afiqiqmal\Model\UnSchedule;
-use afiqiqmal\Model\UnScheduleDetail;
 
 trait WaterDisruptionTrait
 {

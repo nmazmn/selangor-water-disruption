@@ -9,7 +9,7 @@ namespace Afiqiqmal\Model;
 
 use Carbon\Carbon;
 
-class ScheduleDetail
+class WaterDetail
 {
     protected $object = null;
 
@@ -23,7 +23,7 @@ class ScheduleDetail
         $map = $object['Disruption'];
         $data = [];
         $data['id'] = $map['id'];
-        $data['title'] = $map['Disruption'];
+        $data['title'] = $map['title'];
         $data['detail'] = $map['cause_by'];
         $data['detail_plain'] = water_utils()->strip_tag_replace($map['cause_by']);
         $data['location'] = isset($map['location']) ? $map['location'] : null;

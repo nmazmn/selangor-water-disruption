@@ -9,13 +9,15 @@ namespace Afiqiqmal\Model;
 
 use Carbon\Carbon;
 
-class UnSchedule
+class Water
 {
     protected $object = null;
+    protected $type = 1;
 
-    public function __construct($object)
+    public function __construct($object, $type = 1)
     {
         $this->object = $object;
+        $this->type = $type;
     }
 
     private function model($object)
@@ -23,19 +25,21 @@ class UnSchedule
         $map = $object['Disruption'];
         $data = [];
         $data['id'] = $map['id'];
-        $data['type'] = 2;
-        $data['type_name'] = "Unscheduled";
+        $data['type'] = $this->type;
+        $data['type_name'] = $this->type == 1? "Scheduled" : "UnSchedule";
         $data['title'] = $map['title'];
         $data['location'] = isset($map['location']) ? $map['location'] : null;
         $data['affected_areas'] = isset($map['affected_area']) ? water_utils()->strip_tag_replace($map['affected_area']) : null;
         $data['affected_areas_filtered'] = isset($map['affected_area']) ? water_utils()->splitWordNewLineToArray($map['affected_area']) : null;
 
-        $event_date = isset($map['created']) ? Carbon::createFromFormat('d/m/Y h:i a', $map['created']) : null;
-        $data['start_date'] = $event_date ? $event_date->timestamp : 0;
-        $data['start_date_formatted'] = $map['created'];
+        $event_date = isset($map['estimate_start']) ? Carbon::parse($map['estimate_start']) : null;
+        $data['start_date'] = $event_date? $event_date->timestamp : 0;
+        $data['start_date_formatted'] = $event_date ?  $map['estimate_start']: null;
 
-        $data['end_date'] = 0;
-        $data['end_date_formatted'] = null;
+        $event_date = isset($map['estimate_end']) ? Carbon::parse($map['estimate_end']) : null;
+        $data['end_date'] = $event_date ? $event_date->timestamp : 0;
+        $data['end_date_formatted'] =  $event_date ? $map['estimate_end'] : null;
+
         $data['district_id'] = $object['District']['code'];
 
         return $data;

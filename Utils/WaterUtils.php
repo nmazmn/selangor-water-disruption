@@ -10,9 +10,9 @@ class WaterUtils
     {
         $words = preg_replace('/<br(\s+)?\/?>/i', "\n", $words);
         $words = str_replace('&nbsp;', '', $words);
-        $words = htmlspecialchars_decode($words, ENT_QUOTES);
+        $words = trim_spaces($words);
 
-        return strip_tags($words);
+        return html_entity_decode($words);
     }
 
     function check_district($district)
@@ -33,7 +33,7 @@ class WaterUtils
 
     function splitWordNewLineToArray($word)
     {
-        return $this->removeAllNullInArray(array_map('trim', preg_split('/\r\n|\r|\n/', $word)));
+        return $this->removeAllNullInArray(array_map('trim', preg_split('/\r\n|\r|\n|,/', $word)));
     }
 
     function removeAllNullInArray($array)

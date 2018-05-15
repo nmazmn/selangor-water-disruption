@@ -4,8 +4,8 @@ namespace afiqiqmal\Traits;
 
 use afiqiqmal\Library\ApiRequest;
 use afiqiqmal\Library\Constant;
-use afiqiqmal\Model\Schedule;
-use afiqiqmal\Model\ScheduleDetail;
+use afiqiqmal\Model\Water;
+use afiqiqmal\Model\WaterDetail;
 use afiqiqmal\Model\UnSchedule;
 use afiqiqmal\Model\UnScheduleDetail;
 
@@ -44,11 +44,11 @@ trait WaterDisruptionTrait
         try {
             if ($type == WATER_SCHEDULE) {
                 $disruption = $this->apiCall()->fetch("view/{$id}.json")['body'];
-                return water_response((new ScheduleDetail($disruption))->toArray());
+                return water_response((new WaterDetail($disruption))->toArray());
             }
             if ($type == WATER_UNSCHEDULED) {
                 $disruption = $this->apiCall()->fetch("unschedule_view/{$id}.json")['body'];
-                return water_response((new UnScheduleDetail($disruption))->toArray());
+                return water_response((new WaterDetail($disruption))->toArray());
             }
 
             return die_response('Wrong type of disruption is passed. Please check again');
@@ -66,7 +66,7 @@ trait WaterDisruptionTrait
     {
         $schedules = $this->apiCall()->fetch("scheduled.json");
 
-        $result = (new Schedule($schedules['body']))->toArray();
+        $result = (new Water($schedules['body'], 1))->toArray();
         $districts = Constant::WATER_DISTRICT;
 
         foreach ($districts as $key => $district) {
@@ -101,7 +101,7 @@ trait WaterDisruptionTrait
     {
         $unscheduled = $this->apiCall()->fetch("unschedule.json");
 
-        $result = (new UnSchedule($unscheduled['body']))->toArray();
+        $result = (new Water($unscheduled['body'], 2))->toArray();
 
         $districts = Constant::WATER_DISTRICT;
         foreach ($districts as $key => $district) {
@@ -135,8 +135,8 @@ trait WaterDisruptionTrait
     {
         $schedules = $this->apiCall()->fetch("scheduled.json");
         $unscheduled = $this->apiCall()->fetch("unschedule.json");
-        $result1 = (new Schedule($schedules['body']))->toArray();
-        $result2 = (new UnSchedule($unscheduled['body']))->toArray();
+        $result1 = (new Water($schedules['body'], 1))->toArray();
+        $result2 = (new Water($unscheduled['body'], 2))->toArray();
 
         $districts = Constant::WATER_DISTRICT;
 

@@ -77,7 +77,7 @@ $data = air_selangor()
         ->fetch();
 ```
 
-#### Usage for Water Dam
+#### Usage for Water Dam (Get Information of Selangor Water Dam Water Level)
 ```php
 $data = air_selangor()
 		->waterDam()
@@ -388,7 +388,7 @@ UnSchedule Sample
 ```
 
 #### Water Dam Air Selangor
-Sample Result
+Sample Result 
 ```json
 {
     "code": 200,
@@ -541,5 +541,7 @@ Sample Result
 Licensed under the [MIT license](http://opensource.org/licenses/MIT)
 
 ## Credit
-Credit to : MySyabas Air Selangor
+Credit to : 
+- MySyabas Air Selangor
+- Lembaga Urus Air Selangor
 

@@ -33,45 +33,45 @@ require_once __DIR__ .'/../vendor/autoload.php';
 #### Sample for All List
 ```php
 $data = air_selangor()
-		->disruption()
-		->getList()
-		->fetch();
+	->disruption()
+	->getList()
+	->fetch();
 ```
 
 #### Sample for All List by District
 ```php
 $data = air_selangor()
         ->disruption()
-		->getList()
-		->byDistrict("20") // byDistrict("20,00,10") // byDistrict(["20","00"])
-		->fetch();
+	->getList()
+	->byDistrict("20") // byDistrict("20,00,10") // byDistrict(["20","00"])
+	->fetch();
 ```
 
 #### Sample for All Schedule List
 ```php
 $data = air_selangor()
-		->disruption()
-		->getList()
-		->schedule() // schedule() or unscheduled()
-		->byDistrict("20") // byDistrict("20,00,10") // byDistrict(["20","00"])
-		->fetch();
+	->disruption()
+	->getList()
+	->schedule() // schedule() or unscheduled()
+	->byDistrict("20") // byDistrict("20,00,10") // byDistrict(["20","00"])
+	->fetch();
 ```
 
 #### Sample for All Schedule List by District
 ```php
 $data = air_selangor()
-		->disruption()
-		->getList()
-		->schedule() // schedule() or unscheduled()
-		->byDistrict("20") // byDistrict("20,00,10") // byDistrict(["20","00"])
-		->fetch();
+	->disruption()
+	->getList()
+	->schedule() // schedule() or unscheduled()
+	->byDistrict("20") // byDistrict("20,00,10") // byDistrict(["20","00"])
+	->fetch();
 ```
 
 
 #### Sample for See Detail from the list by ID
 ```php
 $data = air_selangor()
-		->disruption()
+	->disruption()
         ->unscheduled() // schedule() or unscheduled()  // mandatory
         ->detail("12345")
         ->fetch();
@@ -80,7 +80,7 @@ $data = air_selangor()
 #### Usage for Water Dam (Get Information of Selangor Water Dam Water Level)
 ```php
 $data = air_selangor()
-		->waterDam()
+	->waterDam()
         ->fetch();
 ```
 

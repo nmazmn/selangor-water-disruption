@@ -63,4 +63,6 @@ class Constant
             'data' => [],
         ],
     ];
+
+    const IWRIMS_URL = "http://iwrims.luas.gov.my/";
 }

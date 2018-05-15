@@ -1,6 +1,6 @@
 <?php
 
-namespace Afiqiqmal\WaterDisruption;
+namespace afiqiqmal\Utils;
 
 use afiqiqmal\Library\Constant;
 

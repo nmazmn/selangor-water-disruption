@@ -23,7 +23,9 @@
         "psr-4": {
             "afiqiqmal\\WaterDisruption\\": "src/",
             "afiqiqmal\\Library\\": "library/",
-            "afiqiqmal\\Model\\": "Model/"
+            "afiqiqmal\\Model\\": "Model/",
+            "afiqiqmal\\Traits\\": "Traits/",
+            "afiqiqmal\\Utils\\": "Utils/"
         },
         "files": ["helper/helpers.php"]
     }

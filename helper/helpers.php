@@ -2,8 +2,8 @@
 
 use afiqiqmal\Library\ApiRequest;
 use afiqiqmal\library\Constant;
-use afiqiqmal\WaterDisruption\WaterDisruption;
-use afiqiqmal\WaterDisruption\WaterUtils;
+use afiqiqmal\Utils\WaterUtils;
+use afiqiqmal\WaterDisruption\AirSelangor;
 
 define('WATER_METHOD_POST', 'POST');
 define('WATER_METHOD_GET', 'GET');
@@ -17,7 +17,7 @@ if (! function_exists('air_selangor')) {
 
     function air_selangor()
     {
-        return new WaterDisruption();
+        return new AirSelangor();
     }
 }
 

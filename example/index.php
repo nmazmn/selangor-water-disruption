@@ -8,7 +8,7 @@
 
 require_once __DIR__ .'/../vendor/autoload.php';
 
-$response = air_selangor()->getList()->fetch();
+$response = air_selangor()->disruption()->getList()->fetch();
 //$response = air_selangor()->getList()->byDistrict("20")->fetch();
 
 //$response = air_selangor()->getList()->schedule()->fetch();

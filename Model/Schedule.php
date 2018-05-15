@@ -27,7 +27,7 @@ class Schedule
         $data['type_name'] = "Scheduled";
         $data['title'] = $map['note'];
         $data['location'] = isset($map['location']) ? $map['location'] : null;
-        $data['affected_areas'] = isset($map['affected']) ? $map['affected'] : null;
+        $data['affected_areas'] = isset($map['affected']) ? water_utils()->strip_tag_replace($map['affected']) : null;
         $data['affected_areas_filtered'] = isset($map['affected']) ? water_utils()->splitWordNewLineToArray($map['affected']) : null;
 
         $event_date = isset($map['start']) ? Carbon::createFromFormat('d/m/Y h:i a', $map['start']) : null;

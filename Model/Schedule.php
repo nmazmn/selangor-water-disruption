@@ -29,12 +29,15 @@ class Schedule
         $data['location'] = isset($map['location']) ? $map['location'] : null;
         $data['affected_areas'] = isset($map['affected']) ? $map['affected'] : null;
         $data['affected_areas_filtered'] = isset($map['affected']) ? water_utils()->splitWordNewLineToArray($map['affected']) : null;
-        $event_date = Carbon::createFromFormat('d/m/Y h:i a', $map['start']);
-        $data['start_date'] = $event_date->timestamp;
-        $data['start_date_formatted'] = $map['start'];
-        $event_date = Carbon::createFromFormat('d/m/Y h:i a', $map['end']);
-        $data['end_date'] = $event_date->timestamp;
-        $data['end_date_formatted'] =  $map['end'];
+
+        $event_date = isset($map['start']) ? Carbon::createFromFormat('d/m/Y h:i a', $map['start']) : null;
+        $data['start_date'] = isset($map['start']) ? $event_date->timestamp : 0;
+        $data['start_date_formatted'] = isset($map['start']) ?  $map['start']: null;
+
+        $event_date = isset($map['end']) ? Carbon::createFromFormat('d/m/Y h:i a', $map['end']) : null;
+        $data['end_date'] = isset($map['end']) ? $event_date->timestamp : 0;
+        $data['end_date_formatted'] =  isset($map['end']) ? $map['end'] : null;
+
         $data['district_id'] = $object['DisruptionLocation'][0]['code'];
 
         return $data;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Afiqiqmal\WaterDisruption;
+namespace afiqiqmal\Traits;
 
 use afiqiqmal\Library\ApiRequest;
 use afiqiqmal\Library\Constant;
@@ -9,12 +9,11 @@ use afiqiqmal\Model\ScheduleDetail;
 use afiqiqmal\Model\UnSchedule;
 use afiqiqmal\Model\UnScheduleDetail;
 
-trait WaterTrait
+trait WaterDisruptionTrait
 {
     protected function getWhichList($type, $byDistrict = null)
     {
         try {
-
             if ($byDistrict) {
                 $byDistrict = water_utils()->check_district($byDistrict);
                 if (!$byDistrict) {

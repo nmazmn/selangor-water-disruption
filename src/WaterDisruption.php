@@ -2,9 +2,11 @@
 
 namespace afiqiqmal\WaterDisruption;
 
+use afiqiqmal\Traits\WaterDisruptionTrait;
+
 class WaterDisruption
 {
-    use WaterTrait;
+    use WaterDisruptionTrait;
 
     private $isList = false;
     private $whichType = null;

@@ -27,7 +27,7 @@ class UnSchedule
         $data['type_name'] = "Unscheduled";
         $data['title'] = $map['title'];
         $data['location'] = isset($map['location']) ? $map['location'] : null;
-        $data['affected_areas'] = isset($map['affected_area']) ? $map['affected_area'] : null;
+        $data['affected_areas'] = isset($map['affected_area']) ? water_utils()->strip_tag_replace($map['affected_area']) : null;
         $data['affected_areas_filtered'] = isset($map['affected_area']) ? water_utils()->splitWordNewLineToArray($map['affected_area']) : null;
 
         $event_date = isset($map['created']) ? Carbon::createFromFormat('d/m/Y h:i a', $map['created']) : null;

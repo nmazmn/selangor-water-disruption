@@ -20,26 +20,34 @@ class ScheduleDetail
 
     private function model($object)
     {
-        $map = $object['DisruptionDetail'];
+        $map = $object['Disruption'];
         $data = [];
         $data['id'] = $map['id'];
-        $data['title'] = $map['note'];
-        $data['detail'] = $object['DisruptionCategory']['name'];
-        $data['detail_plain'] = water_utils()->strip_tag_replace($object['DisruptionCategory']['name']);
-        $data['remarks'] = $map['note_more'];
+        $data['title'] = $map['Disruption'];
+        $data['detail'] = $map['cause_by'];
+        $data['detail_plain'] = water_utils()->strip_tag_replace($map['cause_by']);
         $data['location'] = isset($map['location']) ? $map['location'] : null;
-        $data['remarks_plain'] = water_utils()->strip_tag_replace($map['note_more']);
-        $data['affected_areas'] = $map['affected'];
-        $data['affected_areas_plain'] = water_utils()->strip_tag_replace($map['affected']);
+        $data['affected_areas'] = $map['affected_area'];
+        $data['affected_areas_plain'] = water_utils()->strip_tag_replace($map['affected_area']);
         $data['affected_areas_filtered'] = water_utils()->splitWordNewLineToArray($data['affected_areas_plain']);
+        $data['level_disruption'] = $object['Category']['name'];
 
-        $event_date = isset($map['start']) ? Carbon::createFromFormat('d/m/Y h:i a', $map['start']) : null;
-        $data['start_date'] = isset($map['start']) ? $event_date->timestamp : 0;
-        $data['start_date_formatted'] = isset($map['start']) ?  $map['start']: null;
+        $event_date = isset($map['estimate_start']) ? Carbon::createFromFormat('d/m/Y h:i a', $map['estimate_start']) : null;
+        $data['start_date'] = $event_date ? $event_date->timestamp : 0;
+        $data['start_date_formatted'] = $event_date ? $event_date->format('M d Y, H:i'): null;
 
-        $event_date = isset($map['end']) ? Carbon::createFromFormat('d/m/Y h:i a', $map['end']) : null;
-        $data['end_date'] = isset($map['end']) ? $event_date->timestamp : 0;
-        $data['end_date_formatted'] =  isset($map['end']) ? $map['end'] : null;
+        $event_date = isset($map['estimate_end']) ? Carbon::createFromFormat('d/m/Y h:i a', $map['estimate_end']) : null;
+        $data['end_date'] = $event_date ? $event_date->timestamp : 0;
+        $data['end_date_formatted'] =  $event_date ? $event_date->format('M d Y, H:i') : null;
+
+        foreach ($object['Info'] as $info) {
+            $timeline['info'] = $info['title'];
+            $timeline['info_plain'] = water_utils()->strip_tag_replace($info['title']);
+            $event_date = Carbon::createFromFormat('d/m/Y h:i a', $info['info_time']);
+            $timeline['info_time'] = $event_date->timestamp;
+            $timeline['info_time_formatted'] = $event_date->format('M d Y, H:i');
+            $data['timeline'][] = $timeline;
+        }
 
         return $data;
     }

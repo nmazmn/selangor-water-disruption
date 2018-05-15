@@ -31,6 +31,7 @@ class UnScheduleDetail
         $data['affected_areas_plain'] = water_utils()->strip_tag_replace($map['affected_area']);
         $data['affected_areas_filtered'] = water_utils()->splitWordNewLineToArray($data['affected_areas_plain']);
         $data['level_disruption'] = $object['Category']['name'];
+
         $event_date = isset($map['estimate_start']) ? Carbon::createFromFormat('d/m/Y h:i a', $map['estimate_start']) : null;
         $data['start_date'] = $event_date ? $event_date->timestamp: 0;
         $data['start_date_formatted'] = $event_date ? $event_date->format('M d Y, H:i') : null;

@@ -44,7 +44,7 @@ trait WaterTrait
     {
         try {
             if ($type == WATER_SCHEDULE) {
-                $disruption = $this->apiCall()->fetch("scheduled_view/{$id}.json")['body'];
+                $disruption = $this->apiCall()->fetch("view/{$id}.json")['body'];
                 return water_response((new ScheduleDetail($disruption))->toArray());
             }
             if ($type == WATER_UNSCHEDULED) {
@@ -65,7 +65,7 @@ trait WaterTrait
 
     private function getScheduleList($byDistrict = null)
     {
-        $schedules = $this->apiCall()->fetch("scheduled_all.json");
+        $schedules = $this->apiCall()->fetch("scheduled.json");
 
         $result = (new Schedule($schedules['body']))->toArray();
         $districts = Constant::WATER_DISTRICT;
@@ -134,7 +134,7 @@ trait WaterTrait
 
     private function getAll($byDistrict)
     {
-        $schedules = $this->apiCall()->fetch("scheduled_all.json");
+        $schedules = $this->apiCall()->fetch("scheduled.json");
         $unscheduled = $this->apiCall()->fetch("unschedule.json");
         $result1 = (new Schedule($schedules['body']))->toArray();
         $result2 = (new UnSchedule($unscheduled['body']))->toArray();

@@ -123,10 +123,18 @@ trait WaterDisruptionTrait
 
     private function getAll($byDistrict)
     {
-        $schedules = $this->apiCall()->fetch("scheduled.json");
-        $unscheduled = $this->apiCall()->fetch("unschedule.json");
-        $result1 = (new Water($schedules['body'], 1))->toArray();
-        $result2 = (new Water($unscheduled['body'], 2))->toArray();
+        $schedules = $this->apiCall()->fetch(Constant::WATER_SCHEDULE_ENDPOINT);
+        $unscheduled = $this->apiCall()->fetch(Constant::WATER_UNSCHEDULE_ENDPOINT);
+
+        $result1 = $result2 = [];
+
+        if (!$schedules['error']) {
+            $result1 = (new Water($schedules['body'], 1))->toArray();
+        }
+
+        if (!$unscheduled['error']) {
+            $result2 = (new Water($unscheduled['body'], 2))->toArray();
+        }
 
         $districts = Constant::WATER_DISTRICT;
 

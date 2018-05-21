@@ -14,6 +14,8 @@ class WaterDam
         if (!$result['error']) {
             return $this->scrap($result['body']);
         }
+
+        return die_response('Unable to Fetch Data');
     }
 
     private function apiCall($url): ApiRequest

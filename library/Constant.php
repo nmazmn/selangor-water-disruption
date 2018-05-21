@@ -11,6 +11,8 @@ namespace Afiqiqmal\library;
 class Constant
 {
     const WATER_PUSPEL_URL = "https://eapi.syabas.com.my/api/puspel/puspel_complaint/";
+    const WATER_SCHEDULE_ENDPOINT = "scheduled.json";
+    const WATER_UNSCHEDULE_ENDPOINT = "unschedule.json";
     const WATER_DISTRICT = [
         [
             'code_id' => '00',

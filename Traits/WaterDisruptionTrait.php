@@ -39,13 +39,12 @@ trait WaterDisruptionTrait
 
     protected function getWaterDetail($id)
     {
-        try {
-            $disruption = $this->apiCall()->fetch("view/{$id}.json")['body'];
-            return water_response((new WaterDetail($disruption))->toArray());
-
-        } catch (\Exception $e) {
-            return die_response('Detail Cannot be Fetch');
+        $disruption = $this->apiCall()->fetch("view/{$id}.json");
+        if (!$disruption['error']) {
+            return water_response((new WaterDetail($disruption['body']))->toArray());
         }
+
+        return die_response('Detail Cannot be Fetch');
     }
 
     private function apiCall(): ApiRequest
@@ -55,7 +54,7 @@ trait WaterDisruptionTrait
 
     private function getScheduleList($byDistrict = null)
     {
-        $schedules = $this->apiCall()->fetch("scheduled.json");
+        $schedules = $this->apiCall()->fetch(Constant::WATER_SCHEDULE_ENDPOINT);
 
         $result = (new Water($schedules['body'], 1))->toArray();
         $districts = Constant::WATER_DISTRICT;
@@ -90,7 +89,7 @@ trait WaterDisruptionTrait
 
     private function getUnScheduleList($byDistrict = null)
     {
-        $unscheduled = $this->apiCall()->fetch("unschedule.json");
+        $unscheduled = $this->apiCall()->fetch(Constant::WATER_UNSCHEDULE_ENDPOINT);
 
         $result = (new Water($unscheduled['body'], 2))->toArray();
 

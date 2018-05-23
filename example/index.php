@@ -8,7 +8,7 @@
 
 require_once __DIR__ .'/../vendor/autoload.php';
 
-//$response = air_selangor()->disruption()->getList()->fetch();
+$response = air_selangor()->disruption()->getList()->fetch();
 //$response = air_selangor()->disruption()->getList()->byDistrict("00")->fetch();
 
 //$response = air_selangor()->disruption()->getList()->schedule()->fetch();
@@ -17,7 +17,7 @@ require_once __DIR__ .'/../vendor/autoload.php';
 //$response = air_selangor()->disruption()->getList()->unscheduled()->fetch();
 //$response = air_selangor()->disruption()->getList()->unscheduled()->byDistrict("20")->fetch();
 //
-$response = air_selangor()->disruption()->schedule()->detail("25603")->fetch();
+//$response = air_selangor()->disruption()->schedule()->detail("25603")->fetch();
 
 //$response = air_selangor()->waterDam()->fetch();
 

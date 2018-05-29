@@ -26,9 +26,5 @@ class WaterDetailTest extends TestCase
         $response = air_selangor()->disruption()->fetch();
         $this->assertTrue($response['error']);
         $this->assertEquals(400, $response['code']);
-
-        $response = air_selangor()->disruption()->detail('ABC')->fetch();
-        $this->assertTrue($response['error']);
-        $this->assertEquals(400, $response['code']);
     }
 }

@@ -1,8 +1,8 @@
 <?php
 
-namespace afiqiqmal\Utils;
+namespace Afiqiqmal\Utils;
 
-use afiqiqmal\Library\Constant;
+use Afiqiqmal\Library\Constant;
 
 class WaterUtils
 {

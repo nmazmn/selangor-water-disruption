@@ -23,11 +23,11 @@
     },
     "autoload": {
         "psr-4": {
-            "afiqiqmal\\WaterDisruption\\": "src/",
-            "afiqiqmal\\Library\\": "library/",
-            "afiqiqmal\\Model\\": "Model/",
-            "afiqiqmal\\Traits\\": "Traits/",
-            "afiqiqmal\\Utils\\": "Utils/"
+            "Afiqiqmal\\WaterDisruption\\": "src/",
+            "Afiqiqmal\\Library\\": "Library/",
+            "Afiqiqmal\\Model\\": "Model/",
+            "Afiqiqmal\\Traits\\": "Traits/",
+            "Afiqiqmal\\Utils\\": "Utils/"
         },
         "files": ["helper/helpers.php"]
     }

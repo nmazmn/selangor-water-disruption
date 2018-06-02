@@ -1,9 +1,9 @@
 <?php
 
-use afiqiqmal\Library\ApiRequest;
-use afiqiqmal\library\Constant;
-use afiqiqmal\Utils\WaterUtils;
-use afiqiqmal\WaterDisruption\AirSelangor;
+use Afiqiqmal\Library\ApiRequest;
+use Afiqiqmal\library\Constant;
+use Afiqiqmal\Utils\WaterUtils;
+use Afiqiqmal\WaterDisruption\AirSelangor;
 
 define('WATER_METHOD_POST', 'POST');
 define('WATER_METHOD_GET', 'GET');
@@ -84,7 +84,7 @@ if (! function_exists('water_response')) {
                 "source" => $source,
                 "developer" => [
                     "name" => "Hafiq",
-                    "homepage" => "https://github.com/afiqiqmal"
+                    "homepage" => "https://github.com/Afiqiqmal"
                 ]
             ]
         ];

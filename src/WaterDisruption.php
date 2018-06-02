@@ -1,8 +1,8 @@
 <?php
 
-namespace afiqiqmal\WaterDisruption;
+namespace Afiqiqmal\WaterDisruption;
 
-use afiqiqmal\Traits\WaterDisruptionTrait;
+use Afiqiqmal\Traits\WaterDisruptionTrait;
 
 class WaterDisruption
 {

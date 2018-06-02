@@ -1,11 +1,11 @@
 <?php
 
-namespace afiqiqmal\Traits;
+namespace Afiqiqmal\Traits;
 
-use afiqiqmal\Library\ApiRequest;
-use afiqiqmal\Library\Constant;
-use afiqiqmal\Model\Water;
-use afiqiqmal\Model\WaterDetail;
+use Afiqiqmal\Library\ApiRequest;
+use Afiqiqmal\Library\Constant;
+use Afiqiqmal\Model\Water;
+use Afiqiqmal\Model\WaterDetail;
 
 trait WaterDisruptionTrait
 {

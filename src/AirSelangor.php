@@ -1,10 +1,10 @@
 <?php
 
-namespace afiqiqmal\WaterDisruption;
+namespace Afiqiqmal\WaterDisruption;
 
 /**
  * Class AirSelangor
- * @package afiqiqmal\WaterDisruption
+ * @package Afiqiqmal\WaterDisruption
  */
 class AirSelangor
 {

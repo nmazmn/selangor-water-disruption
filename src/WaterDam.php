@@ -1,9 +1,9 @@
 <?php
 
-namespace afiqiqmal\WaterDisruption;
+namespace Afiqiqmal\WaterDisruption;
 
-use afiqiqmal\library\ApiRequest;
-use afiqiqmal\Library\Constant;
+use Afiqiqmal\library\ApiRequest;
+use Afiqiqmal\Library\Constant;
 use Symfony\Component\DomCrawler\Crawler;
 
 class WaterDam

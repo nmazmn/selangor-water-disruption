@@ -1,8 +1,8 @@
 # List of Water Disruption in Selangor
 [![Build Status](https://travis-ci.org/afiqiqmal/selangor-water-disruption.svg?branch=master)](https://travis-ci.org/afiqiqmal/selangor-water-disruption)
 [![Coverage](https://img.shields.io/codecov/c/github/afiqiqmal/selangor-water-disruption.svg)](https://codecov.io/gh/afiqiqmal/selangor-water-disruption)
-[![Packagist](https://img.shields.io/packagist/dt/hyn/selangor-water-disruption.svg)](https://packagist.org/packages/hyn/selangor-water-disruption)
-[![Packagist](https://img.shields.io/packagist/v/hyn/selangor-water-disruption.svg)](https://packagist.org/packages/hyn/selangor-water-disruption)
+[![Packagist](https://img.shields.io/packagist/dt/afiqiqmal/selangor-water-disruption.svg)](https://packagist.org/packages/afiqiqmal/selangor-water-disruption)
+[![Packagist](https://img.shields.io/packagist/v/afiqiqmal/selangor-water-disruption.svg)](https://packagist.org/packages/afiqiqmal/selangor-water-disruption)
 
 Simple List of Water Disruption in Selangor. This API is based on MySyabas App where i use the endpoint to form this packagist
 

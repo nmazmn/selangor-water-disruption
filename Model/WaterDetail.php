@@ -39,7 +39,7 @@ class WaterDetail
         $event_date = isset($map['estimate_end']) ? Carbon::createFromFormat('d/m/Y h:i a', $map['estimate_end']) : null;
         $data['end_date'] = $event_date ? $event_date->timestamp : 0;
         $data['end_date_formatted'] =  $event_date ? $event_date->format('M d Y, H:i') : 'To Be Confirmed';
-
+        $data['timeline'] = [];
         foreach ($object['Info'] as $info) {
             $timeline['info'] = $info['title'];
             $timeline['info_plain'] = water_utils()->strip_tag_replace($info['title']);

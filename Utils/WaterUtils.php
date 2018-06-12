@@ -15,6 +15,12 @@ class WaterUtils
         return html_entity_decode($words);
     }
 
+    function isNotTBC($input)
+    {
+        $date_check_start = trim($input);
+        return isset($date_check_start) && strtolower($date_check_start) != 'to be confirmed';
+    }
+
     function check_district($district)
     {
         $districts = (!is_array($district)) ? explode(',', $district) : $district;

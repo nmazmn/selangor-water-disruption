@@ -7,6 +7,7 @@
  */
 namespace Afiqiqmal\Model;
 
+use Afiqiqmal\Utils\WaterUtils;
 use Carbon\Carbon;
 
 class Water
@@ -32,11 +33,11 @@ class Water
         $data['affected_areas'] = isset($map['affected_area']) ? water_utils()->strip_tag_replace($map['affected_area']) : null;
         $data['affected_areas_filtered'] = isset($map['affected_area']) ? water_utils()->splitWordNewLineToArray($map['affected_area']) : null;
 
-        $event_date = isset($map['estimate_start']) ? Carbon::parse($map['estimate_start']) : null;
+        $event_date = water_utils()->isNotTBC($map['estimate_start']) ? Carbon::parse($map['estimate_start']) : null;
         $data['start_date'] = $event_date? $event_date->timestamp : 0;
-        $data['start_date_formatted'] = $event_date ? $event_date->format('M d Y, H:i'): null;
+        $data['start_date_formatted'] = $event_date ? $event_date->format('M d Y, H:i'): 'To Be Confirmed';
 
-        $event_date = isset($map['estimate_end']) ? Carbon::parse($map['estimate_end']) : null;
+        $event_date = water_utils()->isNotTBC($map['estimate_end']) ? Carbon::parse($map['estimate_end']) : null;
         $data['end_date'] = $event_date ? $event_date->timestamp : 0;
         $data['end_date_formatted'] =  $event_date ? $event_date->format('M d Y, H:i') : 'To Be Confirmed';
 

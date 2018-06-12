@@ -23,13 +23,13 @@ class WaterDetail
         $map = $object['Disruption'];
         $data = [];
         $data['id'] = $map['id'];
-        $data['title'] = $map['title'];
-        $data['detail'] = $map['cause_by'];
-        $data['detail_plain'] = water_utils()->strip_tag_replace($map['cause_by']);
+        $data['title'] = isset($map['title']) ? $map['title']: 'No Title Available';
+        $data['detail'] = isset($map['cause_by']) ? $map['cause_by'] : '-';
+        $data['detail_plain'] = isset($map['cause_by']) ? water_utils()->strip_tag_replace($map['cause_by']) : '-';
         $data['location'] = isset($map['location']) ? $map['location'] : null;
-        $data['affected_areas'] = $map['affected_area'];
-        $data['affected_areas_plain'] = water_utils()->strip_tag_replace($map['affected_area']);
-        $data['affected_areas_filtered'] = water_utils()->splitWordNewLineToArray($data['affected_areas_plain']);
+        $data['affected_areas'] = isset($map['affected_area']) ? $map['affected_area'] : '-';
+        $data['affected_areas_plain'] = isset($map['affected_area']) ? water_utils()->strip_tag_replace($map['affected_area']) : '-';
+        $data['affected_areas_filtered'] = isset($map['affected_area']) ? water_utils()->splitWordNewLineToArray($data['affected_areas_plain']) : '-';
         $data['level_disruption'] = $object['Category']['name'];
 
         $event_date = water_utils()->isNotTBC($map['estimate_start']) ? Carbon::createFromFormat('d/m/Y h:i a', $map['estimate_start']) : null;
@@ -44,8 +44,8 @@ class WaterDetail
 
         $data['timeline'] = [];
         foreach ($object['Info'] as $info) {
-            $timeline['info'] = $info['title'];
-            $timeline['info_plain'] = water_utils()->strip_tag_replace($info['title']);
+            $timeline['info'] = isset($info['title']) ? $info['title'] : '-';
+            $timeline['info_plain'] = isset($info['title']) ? water_utils()->strip_tag_replace($info['title']) : '-';
             $event_date = water_utils()->isNotTBC($info['info_time']) ? Carbon::createFromFormat('d/m/Y h:i a', $info['info_time']) : null;
             $timeline['info_time'] = $event_date ? $event_date->timestamp : 0;
             $timeline['info_time_formatted'] = $event_date ? $event_date->format('M d Y, H:i') : 'To Be Confirmed';

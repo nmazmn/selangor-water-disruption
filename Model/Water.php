@@ -7,7 +7,6 @@
  */
 namespace Afiqiqmal\Model;
 
-use Afiqiqmal\Utils\WaterUtils;
 use Carbon\Carbon;
 
 class Water
@@ -28,7 +27,7 @@ class Water
         $data['id'] = $map['id'];
         $data['type'] = $this->type;
         $data['type_name'] = $this->type == 1? "Scheduled" : "UnSchedule";
-        $data['title'] = $map['title'];
+        $data['title'] = isset($map['title']) ? $map['title'] : 'No Title Available';
         $data['location'] = isset($map['location']) ? $map['location'] : null;
         $data['affected_areas'] = isset($map['affected_area']) ? water_utils()->strip_tag_replace($map['affected_area']) : null;
         $data['affected_areas_filtered'] = isset($map['affected_area']) ? water_utils()->splitWordNewLineToArray($map['affected_area']) : null;

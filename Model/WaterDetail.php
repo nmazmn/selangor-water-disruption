@@ -34,7 +34,7 @@ class WaterDetail
 
         $event_date = water_utils()->isNotTBC($map['estimate_start']) ? Carbon::createFromFormat('d/m/Y h:i a', $map['estimate_start']) : null;
         $data['start_date'] = $event_date ? $event_date->timestamp : 0;
-        $data['start_date_formatted'] = $event_date ? $event_date->format('M d Y, H:i'): null;
+        $data['start_date_formatted'] = $event_date ? $event_date->format('M d Y, H:i'): 'To Be Confirmed';
         $data['start_date_actual'] = $map['estimate_start'];
 
         $event_date = water_utils()->isNotTBC($map['estimate_end']) ? Carbon::createFromFormat('d/m/Y h:i a', $map['estimate_end']) : null;
@@ -46,9 +46,10 @@ class WaterDetail
         foreach ($object['Info'] as $info) {
             $timeline['info'] = $info['title'];
             $timeline['info_plain'] = water_utils()->strip_tag_replace($info['title']);
-            $event_date = isset($info['info_time']) ? Carbon::createFromFormat('d/m/Y h:i a', $info['info_time']) : null;
+            $event_date = water_utils()->isNotTBC($info['info_time']) ? Carbon::createFromFormat('d/m/Y h:i a', $info['info_time']) : null;
             $timeline['info_time'] = $event_date ? $event_date->timestamp : 0;
             $timeline['info_time_formatted'] = $event_date ? $event_date->format('M d Y, H:i') : 'To Be Confirmed';
+            $timeline['info_time_actual'] = $info['info_time'];
             $data['timeline'][] = $timeline;
         }
 

@@ -3,6 +3,7 @@
 namespace Afiqiqmal\Utils;
 
 use Afiqiqmal\Library\Constant;
+use Carbon\Carbon;
 
 class WaterUtils
 {
@@ -18,7 +19,22 @@ class WaterUtils
     function isNotTBC($input)
     {
         $date_check_start = trim($input);
-        return isset($date_check_start) && strtolower($date_check_start) != 'to be confirmed';
+        if (isset($date_check_start)) {
+            $date_check_start = strtolower($date_check_start);
+            if ($date_check_start == 'to be confirmed' || $date_check_start == 'tbc' || $date_check_start == 'sementara') {
+                return false;
+            }
+
+            try {
+                Carbon::parse($date_check_start);
+            } catch (\Exception $ignored) {
+                return false;
+            }
+
+            return true;
+        }
+
+        return false;
     }
 
     function check_district($district)

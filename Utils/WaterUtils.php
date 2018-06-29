@@ -25,12 +25,6 @@ class WaterUtils
                 return false;
             }
 
-            try {
-                Carbon::parse($date_check_start);
-            } catch (\Exception $ignored) {
-                return false;
-            }
-
             return true;
         }
 

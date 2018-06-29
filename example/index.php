@@ -17,7 +17,7 @@ require_once __DIR__ .'/../vendor/autoload.php';
 //$response = air_selangor()->disruption()->getList()->unscheduled()->fetch();
 //$response = air_selangor()->disruption()->getList()->unscheduled()->byDistrict("20")->fetch();
 //
-$response = air_selangor()->disruption()->detail("26180")->fetch();
+$response = air_selangor()->disruption()->detail("26545")->fetch();
 
 //$response = air_selangor()->waterDam()->fetch();
 

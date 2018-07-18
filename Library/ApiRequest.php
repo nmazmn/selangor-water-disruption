@@ -149,12 +149,15 @@ class ApiRequest
                     break;
             }
 
+            $this->header = [
+                'User-Agent' => 'Mobile App',
+            ];
+
             if (!$this->header) {
                 unset($param['headers']);
             }
             $param = array_merge($param, $this->param);
             $response = $client->request($this->method, $url, $param);
-
             $data = [
                 'error' => false,
                 'body' =>  $this->isRaw ? $response->getBody()->getContents() : json_decode($response->getBody(), true),

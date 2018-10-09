@@ -53,6 +53,6 @@ class WaterDisruption
             return $this->getWaterDetail($this->detailId);
         }
 
-        return die_response('Wrong method chaining is used. Please see docs properly');
+        return die_response('Invalid Usage. Please see docs properly');
     }
 }

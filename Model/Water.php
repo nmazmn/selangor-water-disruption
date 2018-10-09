@@ -26,7 +26,7 @@ class Water
         $data = [];
         $data['id'] = $map['id'];
         $data['type'] = $this->type;
-        $data['type_name'] = $this->type == 1? "Scheduled" : "UnScheduled";
+        $data['type_name'] = $this->type == 1? WATER_SCHEDULE : WATER_UNSCHEDULED;
         $data['title'] = isset($map['title']) ? $map['title'] : 'No Title Available';
         $data['location'] = isset($map['location']) ? $map['location'] : null;
         $data['affected_areas'] = isset($map['affected_area']) ? water_utils()->strip_tag_replace($map['affected_area']) : null;

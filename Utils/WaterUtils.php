@@ -21,7 +21,7 @@ class WaterUtils
         $date_check_start = trim($input);
         if (isset($date_check_start)) {
             $date_check_start = strtolower($date_check_start);
-            if ($date_check_start == 'to be confirmed' || $date_check_start == 'tbc' || $date_check_start == 'sementara') {
+            if ($date_check_start == 'to be confirmed' || $date_check_start == 'tbc' || $date_check_start == 'sementara' || $date_check_start = "to be update") {
                 return false;
             }
 

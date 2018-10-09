@@ -10,7 +10,7 @@ define('WATER_METHOD_GET', 'GET');
 define('WATER_METHOD_PATCH', 'PATCH');
 define('WATER_METHOD_DELETE', 'DELETE');
 define('WATER_USER_AGENT', 'testing/1.0');
-define('WATER_SCHEDULE', 'Schedule');
+define('WATER_SCHEDULE', 'Scheduled');
 define('WATER_UNSCHEDULED', 'Unscheduled');
 
 if (! function_exists('air_selangor')) {
